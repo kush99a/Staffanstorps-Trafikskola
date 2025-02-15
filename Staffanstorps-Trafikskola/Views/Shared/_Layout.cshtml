@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - StaffanstorpTrafikskola</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/StaffanstorpTrafikskola.styles.css" asp-append-version="true" />
+</head>
+<body>
+
+
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a asp-action="Index" asp-controller="Home"><h1>Staffanstorps Trafikskola</h1></a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a asp-action="Index" asp-controller="Home">Hem</a></li>
+                    <li><a asp-action="Index" asp-controller="About">Om Oss</a></li>
+                    <li><a asp-action="Index" asp-controller="Contact">Kontakt</a></li>
+                </ul>
+
+                <div class="hamburger" id="hamburger-icon">
+                    <div class="bar bar1"></div>
+                    <div class="bar bar2"></div>
+                    <div class="bar bar3"></div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="mobile-menu" id="mobile-menu">
+            <ul>
+                <li><a asp-action="Index" asp-controller="Home">Hem</a></li>
+                <li><a asp-action="Index" asp-controller="About">Om Oss</a></li>
+                <li><a asp-action="Index" asp-controller="Contact">Kontakt</a></li>
+            </ul>
+        </div>
+    </header>
+
+
+
+    <main>
+        @RenderBody()
+    </main>
+
+
+    <footer>
+        <p>&copy; 2024 Staffanstorp Trafikskola. Alla rättigheter förbehållna.</p>
+    </footer>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,388 @@
+:root {
+    --primary-color: #FFA500; /* Orange */
+    --secondary-color: #FFFFFF; /* Vit */
+    --text-color: #333333; /* Mörkgrå */
+    --accent-color: #000000; /* Svart */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    background: linear-gradient(135deg, #FFA500, #FF4500);
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 6rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+    overflow: hidden;
+    gap: 80px;
+}
+
+/* Bakgrundseffekt */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 69, 0, 0.6), rgba(0, 0, 0, 0.8));
+    animation: gradient-animation 8s infinite alternate;
+    z-index: -1;
+}
+
+/* Text Styling */
+.hero-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    animation: fade-in 1.5s ease-out;
+}
+
+.hero-content p {
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    animation: fade-in 2s ease-out;
+}
+
+/* CTA Button */
+.hero .btn-primary {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.hero .btn-primary:hover {
+    background: var(--accent-color);
+    color: var(--secondary-color);
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.hero .btn-primary::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    animation: pulse 1.5s infinite ease-out;
+}
+
+/* Animationer */
+@keyframes gradient-animation {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes fade-in {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.5); }
+}
+
+/* Responsiv Justering */
+@media (min-width: 576px) {
+    .hero-content h2 {
+        font-size: 3rem;
+    }
+
+    .hero-content p {
+        font-size: 1.5rem;
+    }
+
+}
+
+@media (min-width: 992px) {
+    .hero {
+        padding: 8rem 3rem;
+    }
+
+    .hero-content h2 {
+        font-size: 4rem;
+    }
+
+}
+
+/* Services Section */
+.services {
+    background-color: #fff;
+    padding: 4rem 1rem;
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+    .services a {
+        text-decoration: none;
+        color: #FFA500;
+    }
+
+        .services a a:hover {
+            color: #FFA500;
+        }
+    
+
+
+.services .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.service-card p {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+/* Hover Effekter */
+.service-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* För att lägga till en subtile bakgrundsfärg eller effekter på hover */
+.service-card:hover::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 165, 0, 0.1); /* Ljus orange överlägg */
+    border-radius: 8px;
+    z-index: -1;
+}
+
+/* Responsivitet för mindre skärmar */
+@media (max-width: 768px) {
+    .services .container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .services .container {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+/* Responsivitet */
+@media (min-width: 576px) {
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+
+    .service-card {
+        flex: 1 1 calc(45% - 2rem);
+    }
+}
+
+@media (min-width: 768px) {
+    .hero h2 {
+        font-size: 3rem;
+    }
+
+    .services {
+        padding: 4rem 2rem;
+    }
+
+    .service-card {
+        flex: 1 1 calc(30% - 2rem);
+    }
+}
+
+@media (min-width: 992px) {
+    .hero {
+        flex-direction: row;
+        justify-content: center;
+        text-align: left;
+        padding: 5rem 3rem;
+    }
+
+    .hero h2 {
+        font-size: 4rem;
+    }
+
+    .service-card {
+        flex: 1 1 calc(30% - 2rem);
+    }
+}
+
+@media (min-width: 1200px) {
+    .hero {
+        padding: 6rem 6rem;
+    }
+}
+
+/* Map Section */
+.map-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px; 
+    padding: 60px 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 50px auto;
+    max-width: 1200px;
+    overflow: hidden;
+}
+
+/* Bildstil */
+.map-image {
+    flex: 0 0 120px;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    overflow: hidden;
+    background: linear-gradient(135deg, #FFA500, #FF4500);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+    .map-image img {
+        width: 100%; /* Anpassas till containerns storlek */
+        height: auto;
+        border-radius: 50%;
+    }
+
+/* Textstil */
+.map-text {
+    flex: 1;
+    text-align: left;
+}
+
+    .map-text h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        font-weight: bold;
+        color: #333333;
+        letter-spacing: 1px;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .map-text h2.animate-text {
+            animation: text-reveal 1.2s ease-in-out forwards;
+        }
+
+    .map-text p {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: #666666;
+        margin-bottom: 30px;
+    }
+
+    .map-text .btn-explore {
+        display: inline-block;
+        padding: 0.8rem 1.5rem;
+        font-size: 1.1rem;
+        color: #ffffff;
+        background: linear-gradient(135deg, #FFA500, #FF4500);
+        border: none;
+        border-radius: 50px;
+        text-decoration: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+    }
+
+        .map-text .btn-explore:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #FF4500, #FFA500);
+        }
+
+/* Animation */
+@keyframes text-reveal {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Responsiv design */
+@media (max-width: 768px) {
+    .map-section-advanced {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .map-text {
+        text-align: center;
+    }
+
+        .map-text h2 {
+            font-size: 2rem;
+        }
+
+        .map-text p {
+            font-size: 1rem;
+        }
+
+        .map-text .btn-explore {
+            margin: 0 auto;
+        }
+
+        .map-image {
+            display: none;
+        }
+
+        .map-image img {
+            display: none;
+        }
+}
